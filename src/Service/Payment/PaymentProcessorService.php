@@ -2,6 +2,7 @@
 
 namespace App\Service\Payment;
 
+use App\Service\Payment\Notification\PaymentNotificationMessage;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Psr\Log\LoggerInterface;
 

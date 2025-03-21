@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "symfony/console": "7.2.*",
+        "symfony/doctrine-messenger": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.2.*",
@@ -15,6 +16,7 @@
         "symfony/lock": "7.2.*",
         "symfony/messenger": "7.2.*",
         "symfony/rate-limiter": "7.2.*",
+        "symfony/redis-messenger": "7.2.*",
         "symfony/runtime": "7.2.*",
         "symfony/translation": "7.2.*",
         "symfony/yaml": "7.2.*"

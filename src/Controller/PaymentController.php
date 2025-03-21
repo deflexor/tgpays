@@ -17,9 +17,7 @@ class PaymentController extends AbstractController
         $this->paymentProcessor = $paymentProcessor;
     }
 
-    /**
-     * @Route("/api/payments/default-gateway", name="process_default_payment", methods={"POST"})
-     */
+    #[Route('/api/payments/default-gateway', methods: ['POST'], name:"process_default_payment")]
     public function processDefaultPayment(Request $request): Response
     {
         $data = json_decode($request->getContent(), true);
@@ -40,6 +38,7 @@ class PaymentController extends AbstractController
     /**
      * @Route("/api/payments/alternative-gateway", name="process_alternative_payment", methods={"POST"})
      */
+    #[Route('/api/payments/alternative-gateway', methods: ['POST'])]
     public function processAlternativePayment(Request $request): Response
     {
         $data = json_decode($request->getContent(), true);
