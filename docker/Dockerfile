@@ -24,9 +24,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Configure PHP
 # COPY docker/php/php.ini /usr/local/etc/php/conf.d/app.ini
 
-# Add custom entrypoint (init database)
-# COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-# RUN chmod +x /usr/local/bin/docker-entrypoint
+# Add custom entrypoint
+COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]

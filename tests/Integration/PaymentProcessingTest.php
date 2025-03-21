@@ -10,6 +10,7 @@ use App\Repository\InMemoryPaymentRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Messenger\MessageBusInterface;
 
+
 class PaymentProcessingTest extends KernelTestCase
 {
     private PaymentProcessorService $paymentProcessor;
@@ -54,6 +55,7 @@ class PaymentProcessingTest extends KernelTestCase
         );
         
         // Test data for a new subscription
+        $userId = 'new_user_' . uniqid();
         $paymentData = [
             'token' => 'test-' . uniqid(),
             'status' => 'confirmed',
@@ -62,10 +64,11 @@ class PaymentProcessingTest extends KernelTestCase
             'currency' => 'RUB',
             'error_code' => null,
             'pan' => '1234********1234',
-            'user_id' => 'new_user_' . uniqid(),
+            'user_id' => $userId,
             'language_code' => 'ru'
         ];
         
+        print("processing payment{$userId}\n");
         // Process the payment
         $paymentProcessor->processPayment('default', $paymentData);
         

@@ -39,12 +39,15 @@ class PaymentProcessorService
             
             // Transform gateway-specific data to unified payment model
             $payment = $gateway->transformToPayment($paymentData);
-            
-            // Store payment information (optional if a real repository is implemented)
-            $this->paymentRepository->save($payment);
-            
+
             // Determine if this is a new subscription or renewal
             $isNewSubscription = !$this->paymentRepository->hasUserPreviousPayments($payment->getUserId());
+
+            print("Processing payment for user: " . $payment->getUserId() . "\n");
+            print($isNewSubscription ? "NEW\n" : "OGGG\n");
+
+            // Store payment information (optional if a real repository is implemented)
+            $this->paymentRepository->save($payment);
             
             // Create notification message object
             $notification = new PaymentNotificationMessage(

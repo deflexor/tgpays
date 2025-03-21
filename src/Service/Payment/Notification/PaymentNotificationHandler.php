@@ -55,7 +55,7 @@ class PaymentNotificationHandler
             // Send message to user via Telegram
             $this->telegramService->sendMessage($userId, $messageText);
             
-            $this->logger->info('Payment notification sent successfully', [
+            $this->logger->info("Payment notification sent successfully to $userId ($messageText)", [
                 'user_id' => $userId,
                 'status' => $status,
                 'is_new_subscription' => $isNew

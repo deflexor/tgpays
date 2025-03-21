@@ -4,8 +4,6 @@ namespace App\Repository;
 
 use App\Service\Payment\Payment;
 use App\Service\Payment\PaymentRepositoryInterface;
-use Doctrine\ORM\EntityManagerInterface;
-use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * In-memory implementation of PaymentRepositoryInterface for testing
@@ -25,10 +23,16 @@ class InMemoryPaymentRepository implements PaymentRepositoryInterface
         }
         
         $this->userPayments[$userId][] = $payment->getToken();
+        print_r($this->userPayments);
     }
     
     public function hasUserPreviousPayments(string $userId): bool
     {
+        if (isset($this->userPayments[$userId])) {
+          print("hasUserPreviousPayments: {$userId}: " . count($this->userPayments[$userId]) . " \n");
+        } else {
+          print("hasUserPreviousPayments: {$userId}: unset\n");
+        }
         return isset($this->userPayments[$userId]) && count($this->userPayments[$userId]) > 0;
     }
 }
