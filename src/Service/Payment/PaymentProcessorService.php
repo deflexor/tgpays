@@ -43,9 +43,6 @@ class PaymentProcessorService
             // Determine if this is a new subscription or renewal
             $isNewSubscription = !$this->paymentRepository->hasUserPreviousPayments($payment->getUserId());
 
-            print("Processing payment for user: " . $payment->getUserId() . "\n");
-            print($isNewSubscription ? "NEW\n" : "OGGG\n");
-
             // Store payment information (optional if a real repository is implemented)
             $this->paymentRepository->save($payment);
             

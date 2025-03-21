@@ -38,7 +38,7 @@ services:
     
     # Repository - use InMemory for testing
     App\Service\Payment\PaymentRepositoryInterface:
-        class: App\Repository\InMemoryPaymentRepository
+        class: App\Repository\DoctrinePaymentRepository
     
     # Telegram service
     App\Service\Telegram\TelegramServiceInterface:

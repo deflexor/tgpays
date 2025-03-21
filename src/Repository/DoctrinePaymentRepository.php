@@ -61,7 +61,7 @@ class DoctrinePaymentRepository implements PaymentRepositoryInterface
         // Query database if not in cache
         $count = $this->entityManager->createQueryBuilder()
             ->select('COUNT(p.id)')
-            ->from('App:Payment', 'p')
+            ->from(\App\Entity\Payment::class, 'p')
             ->where('p.userId = :userId')
             ->setParameter('userId', $userId)
             ->getQuery()

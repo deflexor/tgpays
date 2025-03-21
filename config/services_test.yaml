@@ -1,0 +1,4 @@
+services:
+    App\Service\Payment\PaymentRepositoryInterface:
+        class: App\Repository\InMemoryPaymentRepository
+        shared: true

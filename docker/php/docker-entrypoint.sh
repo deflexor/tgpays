@@ -13,17 +13,17 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ]; then
     fi
 
     # Wait for database to be ready
-    # until nc -z -v -w30 database 3306; do
-    #     echo "Waiting for database connection..."
-    #     sleep 1
-    # done
+    until nc -z -v -w30 database 3306; do
+        echo "Waiting for database connection..."
+        sleep 1
+    done
 
-    # # Run migrations
-    # if [ -f bin/console ]; then
-    #     bin/console doctrine:database:create --if-not-exists --no-interaction
-    #     bin/console doctrine:migrations:migrate --no-interaction
-    #     bin/console cache:clear
-    # fi
+    # Run migrations
+    if [ -f bin/console ]; then
+        bin/console doctrine:database:create --if-not-exists --no-interaction
+        bin/console doctrine:migrations:migrate --no-interaction
+        bin/console cache:clear
+    fi
 fi
 
 exec "$@"

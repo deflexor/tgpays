@@ -68,7 +68,6 @@ class PaymentProcessingTest extends KernelTestCase
             'language_code' => 'ru'
         ];
         
-        print("processing payment{$userId}\n");
         // Process the payment
         $paymentProcessor->processPayment('default', $paymentData);
         

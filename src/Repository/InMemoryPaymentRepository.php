@@ -23,16 +23,10 @@ class InMemoryPaymentRepository implements PaymentRepositoryInterface
         }
         
         $this->userPayments[$userId][] = $payment->getToken();
-        print_r($this->userPayments);
     }
     
     public function hasUserPreviousPayments(string $userId): bool
     {
-        if (isset($this->userPayments[$userId])) {
-          print("hasUserPreviousPayments: {$userId}: " . count($this->userPayments[$userId]) . " \n");
-        } else {
-          print("hasUserPreviousPayments: {$userId}: unset\n");
-        }
         return isset($this->userPayments[$userId]) && count($this->userPayments[$userId]) > 0;
     }
 }
