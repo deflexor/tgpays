@@ -1,0 +1,11 @@
+payment:
+  new:
+    authorized: "📋 *New Subscription Processing*\n\nYour payment of *%amount% %currency%* is being processed. We'll notify you once it's complete."
+    confirmed: "🎉 *New Subscription Activated!*\n\nWelcome aboard! Your payment of *%amount% %currency%* has been successfully processed. Your subscription is now active.\n\nThank you for subscribing to our service!"
+    rejected: "❌ *New Subscription Failed*\n\nWe couldn't process your payment of *%amount% %currency%*.\nError code: `%error_code%`\n\nPlease check your payment details and try again."
+    refunded: "💰 *New Subscription Refunded*\n\nYour payment of *%amount% %currency%* has been refunded. If you have any questions, please contact our support team."
+  renewal:
+    authorized: "📋 *Subscription Renewal Processing*\n\nYour renewal payment of *%amount% %currency%* is being processed. We'll notify you once it's complete."
+    confirmed: "✅ *Subscription Renewed!*\n\nGreat news! Your subscription has been successfully renewed with a payment of *%amount% %currency%*.\n\nThank you for your continued trust!"
+    rejected: "⚠️ *Subscription Renewal Failed*\n\nWe couldn't process your renewal payment of *%amount% %currency%*.\nError code: `%error_code%`\n\nPlease update your payment method to keep your subscription active."
+    refunded: "💰 *Renewal Payment Refunded*\n\nYour renewal payment of *%amount% %currency%* has been refunded. Your subscription status may be affected."

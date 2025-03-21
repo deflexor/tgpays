@@ -22,3 +22,26 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    # Core services
+    App\Service\Payment\PaymentProcessorService: ~
+    App\Service\Payment\PaymentGatewayResolverInterface:
+        class: App\Service\Payment\Gateway\PaymentGatewayResolver
+    
+    # Gateways
+    App\Service\Payment\Gateway\DefaultGateway: ~
+    App\Service\Payment\Gateway\AlternativeGateway: ~
+    
+    # Repository - use InMemory for testing
+    App\Service\Payment\PaymentRepositoryInterface:
+        class: App\Repository\InMemoryPaymentRepository
+    
+    # Telegram service
+    App\Service\Telegram\TelegramServiceInterface:
+        class: App\Service\Telegram\TelegramService
+        arguments:
+            $botToken: '%env(TELEGRAM_BOT_TOKEN)%'
+
+    # Notification handler
+    App\Service\Payment\Notification\PaymentNotificationHandler:
+        tags: ['messenger.message_handler']
+

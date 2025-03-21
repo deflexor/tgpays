@@ -1,0 +1,8 @@
+# Rate limiter factory for Telegram API
+framework:
+    rate_limiter:
+        telegram:
+            policy: 'token_bucket'
+            limit: 10
+            rate:
+                interval: '1 second'
