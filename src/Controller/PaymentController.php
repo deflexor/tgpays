@@ -35,9 +35,6 @@ class PaymentController extends AbstractController
         }
     }
     
-    /**
-     * @Route("/api/payments/alternative-gateway", name="process_alternative_payment", methods={"POST"})
-     */
     #[Route('/api/payments/alternative-gateway', methods: ['POST'])]
     public function processAlternativePayment(Request $request): Response
     {
